@@ -55,9 +55,13 @@ The / operator performs standard division and can return a decimal result. The ~
 ## Part 5: Predicting Program Output
 
 ### Prediction Before Running the Code
+
 • Question 1: -5
+
 • Question 2: 2
+
 • Reason: I expected the setter to accept -5, and I thought each call to add() increased the item count by 1.
+
 ### Real Output
 
 ```text
