@@ -1,7 +1,9 @@
 
 Name: Muhira Mohammed Abdulrhman Ibrahim
+
 Student ID: 27444
-Personal Values:
+
+My numbers:
 - D: 44
 - L: 4
 - Initial Balance: 1440 RWF
