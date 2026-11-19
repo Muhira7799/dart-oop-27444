@@ -40,3 +40,105 @@
 
 # 
 
+
+
+\## Part 1: Why no setter for balance?
+
+
+
+The balance has no setter to prevent users from changing it directly. It should only change through methods such as topUp() and pay().
+
+
+
+\## Part 2: What does \~/ do?
+
+
+
+The / operator returns a decimal result, while \~/ returns an integer by removing the decimal part.
+
+
+
+237 \* 17 / 100 = 40.29
+
+
+
+237 \* 17 \~/ 100 = 40
+
+
+
+\## Part 4: Bug table
+
+
+
+| Bug | The line | Why it is wrong | Your fix |
+
+|---|---|---|---|
+
+| 1 | String \_brand; | The non-nullable field needs an initial value. | Initialize the field or use late. |
+
+| 2 | int \_battery; | The non-nullable field needs an initial value. | Initialize it through the constructor. |
+
+| 3 | SmartPhone constructor | The parent constructor is not called. | Add : super(brand, battery). |
+
+| 4 | @override void restart() | The parent class has no restart() method. | Add restart() to Phone. |
+
+| 5 | print(p.battery()); | battery is a getter, not a method. | Use print(p.battery). |
+
+| Not a bug | p.battery = 100; | This is valid when a setter exists. | Keep the line and add a setter that accepts values from 0 to 100. |
+
+
+
+\## Part 5
+
+
+
+My prediction:
+
+\- Question 1: A (-5)
+
+\- Question 2: A (2)
+
+
+
+Real output:
+
+1
+
+5
+
+
+
+Was I right?
+
+No. My prediction was different from the real output. The setter rejected -5, and BigBag.add() increases the items by two each time.
+
+
+
+\## Output of main.dart
+
+
+
+Error: name too short
+
+Owner: Ama | Balance: 1440 RWF
+
+Owner: Muhira Mohammed Abdulrhman Ibrahim | Balance: 1440 RWF
+
+Error: top-up must be 500 to 50000 RWF
+
+Topped up 2000 RWF
+
+Paid 244 RWF
+
+Paid 244 RWF
+
+Owner: Muhira Mohammed Abdulrhman Ibrahim | Balance: 2952 RWF
+
+Student discount: 34 RWF
+
+Paid 210 RWF
+
+Owner: Muhira Mohammed Abdulrhman Ibrahim | Balance: 1230 RWF
+
+Student card: 14% off
+
