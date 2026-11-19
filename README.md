@@ -1,144 +1,75 @@
-# 
 
-# \# Dart OOP Assignment: Kigali Bus Card
+# Dart OOP Assignment: Kigali Bus Card
 
-# 
+**Name:** Muhira Mohammed Abdulrhman Ibrahim
 
-# \*\*Name:\*\* Muhira Mohammed Abdulrhman Ibrahim
+**Student ID:** 27444
 
-# \*\*Student ID:\*\* 27444
+## My Numbers
 
-# 
+- D = 44
+- L = 4
+- Starting balance = 1440 RWF
+- Bus fare = 244 RWF
+- Student discount = 14%
 
-# \## My numbers
+## Part 1: Why Is There No Setter for Balance?
 
-# \- D = 44
+The balance has no setter to prevent users from changing it directly. It should only change through methods such as `topUp()` and `pay()`.
 
-# \- L = 4
+## Part 2: What Does `~/` Do?
 
-# \- Starting balance = 1440 RWF
+The `/` operator returns a decimal result, while `~/` returns an integer by removing the decimal part.
 
-# \- Bus fare = 244 RWF
+```text
+237 * 17 / 100 = 40.29
+237 * 17 ~/ 100 = 40
+```
 
-# \- Student discount = 14%
-
-# 
-
-# \## Part 5: Predict the Output
-
-# 
-
-# My prediction:
-
-# \- Question 1: A (-5)
-
-# \- Question 2: A (2)
-
-# 
-
-# My reason: I thought the setter would accept -5, and I thought each call to add() would increase the items by one.
-
-# 
-
-
-
-\## Part 1: Why no setter for balance?
-
-
-
-The balance has no setter to prevent users from changing it directly. It should only change through methods such as topUp() and pay().
-
-
-
-\## Part 2: What does \~/ do?
-
-
-
-The / operator returns a decimal result, while \~/ returns an integer by removing the decimal part.
-
-
-
-237 \* 17 / 100 = 40.29
-
-
-
-237 \* 17 \~/ 100 = 40
-
-
-
-\## Part 4: Bug table
-
-
+## Part 4: Bug Hunt
 
 | Bug | The line | Why it is wrong | Your fix |
-
 |---|---|---|---|
+| 1 | `String _brand;` | The non-nullable field needs an initial value. | Initialize the field or use `late`. |
+| 2 | `int _battery;` | The non-nullable field needs an initial value. | Initialize it through the constructor. |
+| 3 | SmartPhone constructor | The parent constructor is not called. | Add `: super(brand, battery)`. |
+| 4 | `@override void restart()` | The parent class has no `restart()` method. | Add `restart()` to Phone. |
+| 5 | `print(p.battery());` | `battery` is a getter, not a method. | Use `print(p.battery)`. |
+| Not a bug | `p.battery = 100;` | This is valid when a setter exists. | Keep the line and add a setter that accepts values from 0 to 100. |
 
-| 1 | String \_brand; | The non-nullable field needs an initial value. | Initialize the field or use late. |
+## Part 5: Predict the Output
 
-| 2 | int \_battery; | The non-nullable field needs an initial value. | Initialize it through the constructor. |
+### My Prediction
 
-| 3 | SmartPhone constructor | The parent constructor is not called. | Add : super(brand, battery). |
+- Question 1: A (-5)
+- Question 2: A (2)
 
-| 4 | @override void restart() | The parent class has no restart() method. | Add restart() to Phone. |
+My reason: I thought the setter would accept -5, and I thought each call to `add()` would increase the items by one.
 
-| 5 | print(p.battery()); | battery is a getter, not a method. | Use print(p.battery). |
+### Real Output
 
-| Not a bug | p.battery = 100; | This is valid when a setter exists. | Keep the line and add a setter that accepts values from 0 to 100. |
-
-
-
-\## Part 5
-
-
-
-My prediction:
-
-\- Question 1: A (-5)
-
-\- Question 2: A (2)
-
-
-
-Real output:
-
+```text
 1
-
 5
+```
 
+### Was I Right?
 
+No. My prediction was different from the real output. The setter rejected -5, and `BigBag.add()` increases the items by two each time.
 
-Was I right?
+## Output of `main.dart`
 
-No. My prediction was different from the real output. The setter rejected -5, and BigBag.add() increases the items by two each time.
-
-
-
-\## Output of main.dart
-
-
-
+```text
 Error: name too short
-
 Owner: Ama | Balance: 1440 RWF
-
 Owner: Muhira Mohammed Abdulrhman Ibrahim | Balance: 1440 RWF
-
 Error: top-up must be 500 to 50000 RWF
-
 Topped up 2000 RWF
-
 Paid 244 RWF
-
 Paid 244 RWF
-
 Owner: Muhira Mohammed Abdulrhman Ibrahim | Balance: 2952 RWF
-
 Student discount: 34 RWF
-
 Paid 210 RWF
-
 Owner: Muhira Mohammed Abdulrhman Ibrahim | Balance: 1230 RWF
-
 Student card: 14% off
-
+```
