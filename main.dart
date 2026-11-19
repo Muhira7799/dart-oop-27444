@@ -46,7 +46,7 @@ void pay(int fare) {
   }
 }
 }
-
+// Part 2: StudentCard inherits from BusCard.
 class StudentCard extends BusCard {
   int _discount = 0;
 
@@ -71,7 +71,7 @@ class StudentCard extends BusCard {
     super.pay(fare - off);
   }
 }
-
+// Part 3: Test the bus cards using my personal numbers.
 void main() {
   // My numbers: D = 44, L = 4
   // Starting balance = 1440 RWF
